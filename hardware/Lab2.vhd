@@ -6,7 +6,7 @@ entity Lab2 is
 	port (
 		clk    : in std_logic := '0'; -- clk.clk
 		rst : in std_logic := '0';  -- rst.reset_n
-		segmentout : out std_logic_vector(6 downto 0)
+		segmentout : out std_logic_vector(20 downto 0)
 	);
 end entity Lab2;
 
@@ -18,7 +18,7 @@ architecture arch of Lab2 is
         port (
             clk_clk     : in std_logic := 'X'; -- clk
             rst_reset_n : in std_logic := 'X';  -- reset_n
-				pio_0_export : out std_logic_vector(3 downto 0)  --export
+				pio_0_export : out std_logic_vector(11 downto 0)  --export
         );
     end component Lab2_qsys;
 	 
@@ -29,7 +29,7 @@ architecture arch of Lab2 is
 		);
 	end component bin_to_7seg;
 	
-	signal pio_7seg : std_logic_vector(3 downto 0); 
+	signal pio_7seg : std_logic_vector(11 downto 0); 
 	 
 begin
     u0 : Lab2_qsys
@@ -41,7 +41,20 @@ begin
 		  
 	u1 : bin_to_7seg
 		port map (
-			pio_0 => pio_7seg,
-			segment => segmentout
+			pio_0 => pio_7seg(3 downto 0),
+			segment => segmentout(6 downto 0)
 		);
+	
+	u2 : bin_to_7seg
+		port map (
+			pio_0 => pio_7seg(7 downto 4),
+			segment => segmentout(13 downto 7)
+		);
+
+	u3 : bin_to_7seg
+		port map (
+			pio_0 => pio_7seg(11 downto 8),
+			segment => segmentout(20 downto 14)
+		);	
+
 end architecture;
