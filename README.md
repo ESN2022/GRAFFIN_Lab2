@@ -14,9 +14,18 @@ Dans ce deuxième Lab, je vais mettre en œuvre un flow de conception dans un au
 
 ###Architecture
 
+Pour ce deuxième Lab, j'ai utilisé un Nios2 avec ses périphériques nécessaire pour fonctionner : Mémoire RAM, JTAG debugger, Clock. Pour interfacer l'autre  périphérique (7 segement) j'ai utilisé un PIO, pour la partie QSYS et ensuite un programe vhdl qui convertie les valeurs donnée par le nios en un signal affichable sur les 7 segements. Le tout communiquant avec le bus Avalon. Le montage final sur Platform Designer se trouve sur l'image ci-dessous avec le schéma:
+
+
+![image](https://user-images.githubusercontent.com/75631006/213161743-562d3302-e02c-4fc2-a474-70bfbb9adcfd.png)
 
 
 ![image](https://user-images.githubusercontent.com/75631006/212274691-0b18c7d9-08c7-44fa-b067-af03dfee2df5.png)
+
+J'ai utilisé un seul PIO pour gérer les 3 périphérique 7 segements car ce sont les même périhpérique, qui ont la même direction et qui sont lié.
+Pour convertir ce qui était généré par le nios2 sur la pio j'ai utilisé un bloc HW qui me permet de convertir le binaire qui sort de la PIO en signal permettant d'affiché le chiffre sur les 7 segement.
+
+https://user-images.githubusercontent.com/75631006/212300353-1117d11b-96de-4171-87d6-44dfa58e506a.mp4
 
 
 ![image](https://user-images.githubusercontent.com/75631006/212274613-f78a5d1d-ba8a-4da9-94af-4430d4c6f589.png)
@@ -34,6 +43,6 @@ https://user-images.githubusercontent.com/75631006/212300366-5657d34c-83e4-4f22-
 
 
 
-https://user-images.githubusercontent.com/75631006/212300353-1117d11b-96de-4171-87d6-44dfa58e506a.mp4
+
 
 
