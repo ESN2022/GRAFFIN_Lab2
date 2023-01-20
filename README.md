@@ -11,9 +11,7 @@ Pour ce deuxième Lab, j'ai utilisé un Nios2 avec ses périphériques nécessai
 
 ![image](https://user-images.githubusercontent.com/75631006/213161743-562d3302-e02c-4fc2-a474-70bfbb9adcfd.png)
 
-###### modifier cette image pour qu'elle soit à jour.
-
-![image](https://user-images.githubusercontent.com/75631006/212274691-0b18c7d9-08c7-44fa-b067-af03dfee2df5.png)
+![image](https://user-images.githubusercontent.com/75631006/213637512-8a64f5a0-683b-4687-a750-cb61247dd039.png)
 
 J'ai utilisé un seul PIO pour gérer les 3 périphérique 7 segments, car ce sont les même périhpérique, qui ont la même direction et qui sont liées.
 Pour convertir ce qui était généré par le nios2 sur la pio j'ai utilisé un bloc HW qui prend le binaire qui sort de la PIO et le transforme en signal permettant d'afficher le chiffre sur un afficheur 7 segments.
@@ -38,10 +36,9 @@ https://user-images.githubusercontent.com/75631006/212300363-69cf2f32-0520-4773-
 ### Etape 3
 
 
-##### Faire le commit et photo de l'architechture
 La dernière étape était d'ajouter le Timer pour cadencer le compteur écrit dans le code en C. Pour cela, j'ai modifié l'architecture de mon projet, en ajoutant un timing au QSYS, comme on peut le voir ci-dessous : 
 
-###### image QSYS avec Timer
+![image](https://user-images.githubusercontent.com/75631006/213637602-73dd2842-2b76-4202-bd4f-5d66371f970d.png)
 
 On obtient le résultat final ci-desous:
 
